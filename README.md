@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+```
+# Getting Started
+docker-compose --rm app rails db:create
+docker-compose --rm app rails db:migrate
+docker-compose up
+```
