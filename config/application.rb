@@ -28,14 +28,6 @@ module Blocipedia
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    ActionMailer::Base.smtp_settings = {
-      :user_name => 'blake.a.pfaff2@gmail.com',
-      :password => 'Fakepw12',
-      :domain => 'mail.google.com',
-      :address => 'smtp.gmail.com',
-      :port => 587,
-      :authentication => 'login',
-      :enable_starttls_auto => true
-      }
+
   end
 end
