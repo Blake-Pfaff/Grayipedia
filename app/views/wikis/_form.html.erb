@@ -9,14 +9,13 @@
       </ul>
     </div>
   <% end %>
-
-  <%= form_tag "submit", :id => "my_form" do -%>
-    Title: <%= text_field_tag "title" %>
-    Body: <%= text_area_tag "body"%>
+  <%= form_tag "submit", :id => "wiki" do -%>
+    Title: <%= text_field_tag :title %>
+    Body: <%= text_area_tag :body %>
+    Private: <%= check_box_tag :private %>
 
   <div class="actions">
     <%= form.submit %>
   </div>
-  <% end %>
-
+  <% end -%>
 <% end %>

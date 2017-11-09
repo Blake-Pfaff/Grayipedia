@@ -24,7 +24,7 @@ class WikisController < ApplicationController
   # POST /wikis
   # POST /wikis.json
   def create
-    @wiki = Wiki.new(params[wiki_params])
+    @wiki = Wiki.new(wiki_params)
 
     respond_to do |format|
       if @wiki.save
@@ -69,6 +69,6 @@ class WikisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wiki_params
-      params.fetch(:wiki, {})
+      params.require(:wiki).permit(:title, :body, :private)
     end
 end
