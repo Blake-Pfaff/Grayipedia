@@ -19,6 +19,7 @@ class WikisController < ApplicationController
 
   # GET /wikis/1/edit
   def edit
+
   end
 
   # POST /wikis
@@ -55,11 +56,16 @@ class WikisController < ApplicationController
   # DELETE /wikis/1
   # DELETE /wikis/1.json
   def destroy
-    @wiki.destroy
-    respond_to do |format|
-      format.html { redirect_to wikis_url, notice: 'Wiki was successfully destroyed.' }
-      format.json { head :no_content }
+    @wiki = Wiki.find(params[:id])
+
+    if @wiki.destroy
+      flash[:notice] = "\"#{@wiki.title}\" was deleted successfully."
+      redirect_to wikis_path
+    else
+      flash.now[:alert] = "There was an error deleting the question."
+      render :show
     end
+
   end
 
   private
