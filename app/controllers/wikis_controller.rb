@@ -24,7 +24,8 @@ class WikisController < ApplicationController
   # POST /wikis
   # POST /wikis.json
   def create
-    @wiki = Wiki.new(wiki_params)
+
+    @wiki = current_user.wikis.new(wiki_params)
 
     respond_to do |format|
       if @wiki.save
