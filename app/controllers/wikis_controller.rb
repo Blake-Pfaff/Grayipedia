@@ -10,6 +10,7 @@ class WikisController < ApplicationController
   # GET /wikis/1
   # GET /wikis/1.json
   def show
+    @wiki = Wiki.find(params[:id])
   end
 
   # GET /wikis/new
@@ -19,7 +20,7 @@ class WikisController < ApplicationController
 
   # GET /wikis/1/edit
   def edit
-
+    @wiki  = Wiki.find(params[:id])
   end
 
   # POST /wikis
