@@ -1,6 +1,6 @@
 class WikisController < ApplicationController
   before_action :set_wiki, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token
   # GET /wikis
   # GET /wikis.json
   def index
