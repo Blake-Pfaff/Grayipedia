@@ -45,7 +45,9 @@
  gem 'bootstrap-sass'
 
  gem 'devise'
-
+  #Pundit for authorization
+ gem "pundit"
+ gem 'simple_form', '~> 3.2', '>= 3.2.1'
  group :development do
    gem 'listen', '~> 3.0.5'
  end
