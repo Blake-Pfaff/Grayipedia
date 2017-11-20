@@ -45,6 +45,7 @@ class WikisController < ApplicationController
   def update
     respond_to do |format|
       if @wiki.update(wiki_params)
+        authorize @wiki
         format.html { redirect_to @wiki, notice: 'Wiki was successfully updated.' }
         format.json { render :show, status: :ok, location: @wiki }
       else
@@ -79,4 +80,5 @@ class WikisController < ApplicationController
     def wiki_params
       params.permit(:title, :body, :private)
     end
+
 end

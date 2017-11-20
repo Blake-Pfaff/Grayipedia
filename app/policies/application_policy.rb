@@ -23,7 +23,7 @@ class ApplicationPolicy
   end
 
   def update?
-    user.present?
+    @user.admin? || is_owner?
   end
 
   def edit?
@@ -35,7 +35,7 @@ class ApplicationPolicy
   end
 
   def scope
-    Pundit.policy_scope!(user, record.class)
+    Pundit.policy_scope!(@user, @record.class)
   end
 
   class Scope
@@ -47,7 +47,15 @@ class ApplicationPolicy
     end
 
     def resolve
-      scope
+      @scope
     end
   end
+
+
+  private
+
+  def is_owner?
+    @user && @user == @record.user
+  end
+
 end
