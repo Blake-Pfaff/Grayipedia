@@ -11,6 +11,7 @@ class WikisController < ApplicationController
   # GET /wikis/1.json
   def show
     @wiki = Wiki.find(params[:id])
+    @owner
   end
 
   # GET /wikis/new
