@@ -3,11 +3,7 @@
 <h1>Wikis</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+
 
   <tbody>
     <% @wikis.each do |wiki| %>
@@ -15,9 +11,9 @@
         <td><%= wiki.title %></td>
         <td><%= wiki.body %></td>
         <td><%= link_to 'Show', wiki %></td>
-        <% if policy(@wikis).update? %>
-        <%= link_to 'Edit', edit_wiki_path(wiki) %>
-        <%= link_to 'Destroy', wiki, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% if policy(wiki).update? %>
+        <td><%= link_to 'Edit', edit_wiki_path(wiki) %></td>
+        <td><%= link_to 'Destroy', wiki, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>

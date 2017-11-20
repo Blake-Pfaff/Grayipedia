@@ -10,6 +10,6 @@ class User < ApplicationRecord
   enum role: [:standard, :premium, :admin]
 
   def init
-        self.role  ||= 0.0           #will set the default value only if it's nil
+        self.role  ||= 0          #will set the default value only if it's nil
       end
 end
