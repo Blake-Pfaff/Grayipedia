@@ -25,6 +25,8 @@
    gem 'rspec-rails', '~> 3.0'
    gem 'rails-controller-testing'
  end
+ # for payments
+gem 'stripe', '~> 3.4', '>= 3.4.1'
  # lets the DB be rest w/ Docker
  gem 'pgreset', '~> 0.1.1'
  # Use Puma as the app server
