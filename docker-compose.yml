@@ -9,6 +9,9 @@ services:
       - ./:/var/www/app
     depends_on:
       - db
+    environment:
+      - STRIPE_PUBLISHABLE_KEY=pk_test_TiWr2G3B7VThsahzSiW6TbOs
+      - STRIPE_SECRET_KEY=sk_test_hSogUCBW9ym0d4U3km1ZY1OH
     expose:
       - "3000"
     ports:
