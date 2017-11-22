@@ -19,9 +19,12 @@ class ChargesController < ApplicationController
       currency: 'usd'
     )
 
-    flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
-    redirect_to wikis_path(current_user) # or wherever
+    current_user.update_attribute(:role, 'premium')
 
+    if current_user.save!
+      flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
+      redirect_to wikis_path(current_user) # or wherever
+    end
     # Stripe will send back CardErrors, with friendly messages
     # when something goes wrong.
     # This `rescue block` catches and displays those errors.
