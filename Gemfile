@@ -25,6 +25,8 @@
    gem 'rspec-rails', '~> 3.0'
    gem 'rails-controller-testing'
  end
+ #for markdown syntax
+ gem 'redcarpet', '~> 3.3', '>= 3.3.4'
  # for payments
 gem 'stripe', '~> 3.4', '>= 3.4.1'
  # lets the DB be rest w/ Docker

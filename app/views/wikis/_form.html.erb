@@ -9,9 +9,10 @@
       </ul>
     </div>
   <% end %>
+
   <%= form_tag "submit", :id => "wiki" do -%>
-    Title: <%= text_field_tag :title %>
-    Body: <%= text_area_tag :body %>
+  <div>  Title: <%= text_field_tag :title %> </div>
+  <div>  Body: <%= text_area_tag :body %> </div>
     Private: <%= check_box_tag :private %>
 
   <div class="actions">
