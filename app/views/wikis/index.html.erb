@@ -9,7 +9,6 @@
     <% @wikis.each do |wiki| %>
       <tr>
         <td><%= wiki.title %></td>
-        <td><%= wiki.body %></td>
         <td><%= link_to 'Show', wiki %></td>
         <% if policy(wiki).update? %>
         <td><%= link_to 'Edit', edit_wiki_path(wiki) %></td>
