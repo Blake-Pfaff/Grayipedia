@@ -43,7 +43,6 @@ class WikisController < ApplicationController
   # PATCH/PUT /wikis/1
   # PATCH/PUT /wikis/1.json
   def update
-    puts params
     respond_to do |format|
       if @wiki.update(wiki_params)
         authorize @wiki
