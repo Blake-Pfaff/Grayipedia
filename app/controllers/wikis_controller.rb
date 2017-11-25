@@ -43,6 +43,7 @@ class WikisController < ApplicationController
   # PATCH/PUT /wikis/1
   # PATCH/PUT /wikis/1.json
   def update
+    puts params
     respond_to do |format|
       if @wiki.update(wiki_params)
         authorize @wiki
@@ -78,7 +79,7 @@ class WikisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wiki_params
-      params.permit(:title, :body, :private)
+      params.require(:wiki).permit(:title, :body, :private)
     end
 
 end
