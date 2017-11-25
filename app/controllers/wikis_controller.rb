@@ -4,14 +4,13 @@ class WikisController < ApplicationController
   # GET /wikis
   # GET /wikis.json
   def index
-    @wikis = Wiki.all
+    @wikis = Wiki.public_wikis
   end
 
   # GET /wikis/1
   # GET /wikis/1.json
   def show
     @wiki = Wiki.find(params[:id])
-    @owner
   end
 
   # GET /wikis/new
