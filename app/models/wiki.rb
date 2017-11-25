@@ -3,6 +3,6 @@ class Wiki < ApplicationRecord
 
   # lets you filter public wikis
   def self.public_wikis
-    where(private: nil)
+    where(private: false)
   end
 end
