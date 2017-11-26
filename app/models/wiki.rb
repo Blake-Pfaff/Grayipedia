@@ -3,8 +3,8 @@ class Wiki < ApplicationRecord
   has_many :collabotator
   has_many :users, through: :collaborations
 
-  # lets you filter public wikis
   def public?
-    Wiki.where(private: false)
+    !self.private?
   end
 end
+
