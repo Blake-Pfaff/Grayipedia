@@ -4,7 +4,7 @@ class WikisController < ApplicationController
   # GET /wikis
   # GET /wikis.json
   def index
-    @wikis = Wiki.public_wikis
+    @wikis = policy_scope(Wiki)
   end
 
   # GET /wikis/1
