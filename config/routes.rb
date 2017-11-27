@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'users/downgrade', to: 'users#downgrade'
 
   post 'users/downgrade', to: 'users#perform_downgrade'
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
   resources :charges, only: [:new, :create]
 
   resources :wikis do
-    resources :collaborations, only: [:create, :destroy]
+    resources :collaborators
   end
 
   root 'wikis#index'
