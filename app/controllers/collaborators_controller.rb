@@ -1,7 +1,8 @@
 class CollaboratorsController < ApplicationController
+  before_action :set_wiki, only: [:index, :create]
 
   def index
-    @collaborator = Collaborator.all
+    @users = User.all
   end
 
 
@@ -16,24 +17,23 @@ class CollaboratorsController < ApplicationController
   end
 
   def create
-    @wiki = Wiki.find(params[:wiki_id])
-    @user = User.where('username LIKE ?', "%#{params[:search]}%")
-              .all_except(current_user)
-              .exclude_collaborators(@wiki)
-              .first
-    if @user
-      @collaboration = Collaboration.new(wiki: @wiki, user: @user)
-      if @collaboration.save
-        flash[:notice] = "User successfully added to wiki."
-      else
-        flash[:error] = "There was a problem adding user. Please try again."
-      end
-    else
-      flash[:error] = "Sorry that wasn't a valid username. Please try again."
-    end
-    redirect_to @wiki
+    puts params
+    @wiki.collaborators = {'user_id' => []}.merge(params[:collaborators] || {})
+    @wiki.save!
   end
 
   def destroy
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_wiki
+      @wiki = Wiki.find(params[:wiki_id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def wiki_params
+      params.reaquire(:wiki).permit(:collaborators)
+    end
+
 end
