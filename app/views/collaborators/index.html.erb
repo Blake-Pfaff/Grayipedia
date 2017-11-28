@@ -1,16 +1,26 @@
-<h1>Collaborations</h1>
-
-<table>
-  <tbody>
-    <% @collaborators.each do |wiki| %>
+<%= form_for wiki_collaborators_path do |form| %>
+  <table class="table table-striped">
+    <caption>Add collaborators to the wiki (All users)</caption>
+    <thead>
       <tr>
-        <td><%= wiki.title %></td>
-        <td><%= link_to 'Show', wiki %></td>
-        <% if policy(wiki).update? %>
-        <td><%= link_to 'Edit', edit_wiki_path(wiki) %></td>
-        <td><%= link_to 'Destroy', wiki, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        <th>Email</th>
+        <th>Give Access?</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% User.all.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <td>
+            <div>
+              <%= check_box_tag :collaborator_ids, user.id, @wiki.collaborators.include?(user), :name => 'wiki[collaborators][]' -%>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div>
+    <%= submit_tag %>
+  </div>
+<% end %>
