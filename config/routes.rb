@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :wikis do
-    resources :collaborators, only: [:index, :create]
+    resources :collaborators
   end
 
   resources :charges, only: [:new, :create]

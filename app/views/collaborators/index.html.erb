@@ -15,6 +15,9 @@
             <div>
               <%= check_box_tag :collaborator_ids, user.id, @wiki.collaborators.include?(user), :name => 'wiki[collaborators][]' -%>
             </div>
+            <div>
+              <td><%= button_to "Delete Collaborator", wiki_collaborators_path(@wiki, @user), method: :destroy, params: { collaborated_users: user.id } %></td>
+            </div>
           </td>
         </tr>
       <% end %>
@@ -22,5 +25,8 @@
   </table>
   <div>
     <%= submit_tag %>
+  </div>
+  <div>
+  <%= link_to 'Back to Wikis index', wikis_path, method: :get %>
   </div>
 <% end %>
