@@ -1,10 +1,10 @@
-<%= form_for wiki_collaborators_path do |form| %>
   <table class="table table-striped">
     <caption>Add collaborators to the wiki (All users)</caption>
     <thead>
       <tr>
         <th>Email</th>
-        <th>Give Access?</th>
+        <th>Give Access</th>
+        <th>Remove Access</th>
       </tr>
     </thead>
     <tbody>
@@ -13,10 +13,18 @@
           <td><%= user.email %></td>
           <td>
             <div>
-              <%= check_box_tag :collaborator_ids, user.id, @wiki.collaborators.include?(user), :name => 'wiki[collaborators][]' -%>
+              <td>
+                <% if @wiki.users.exclude?(user) %>
+                  <%= button_to "Add as Collaborator", wiki_collaborators_path(@wiki, user), method: :create, params: { user_id: user.id } %>
+                <% end %>
+              </td>
             </div>
             <div>
-              <td><%= button_to "Delete Collaborator", wiki_collaborators_path(@wiki, @user), method: :destroy, params: { collaborated_users: user.id } %></td>
+              <td>
+                <% if @wiki.users.include?(user) %>
+                  <%= button_to "Delete Collaborator", wiki_collaborator_path(@wiki, user), method: :delete, params: { user_id: user.id } %>
+                <% end %>
+              </td>
             </div>
           </td>
         </tr>
@@ -24,9 +32,5 @@
     </tbody>
   </table>
   <div>
-    <%= submit_tag %>
-  </div>
-  <div>
   <%= link_to 'Back to Wikis index', wikis_path, method: :get %>
   </div>
-<% end %>
