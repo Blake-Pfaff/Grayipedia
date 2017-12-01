@@ -16,3 +16,7 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+.mkbody, .mktitle {
+    background: lightgray;
+    width: 500px;
+}

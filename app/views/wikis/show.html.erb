@@ -1,11 +1,12 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+
 
 <h2>Titlle</h2>
-<div>
+<div class="mktitle">
 <%= @wiki.title %>
 </div>
 <h2>Body</h2>
-<div>
+<div class="mkbody">
 <%= markdown(@wiki.body) %>
 </div>
 
@@ -16,4 +17,4 @@
 
 <%= link_to 'Back', wikis_path %>
 
-
+</div>

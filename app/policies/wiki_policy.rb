@@ -1,5 +1,9 @@
 class WikiPolicy < ApplicationPolicy
 
+  def update?
+    @user.admin? || is_owner? || @record.users.include?(@user)
+  end
+
    class Scope
     attr_reader :user, :scope
 
