@@ -5,6 +5,6 @@ class Wiki < ApplicationRecord
 
   # lets you filter public wikis
   def public?
-      !self.private?
+    !private?
   end
 end

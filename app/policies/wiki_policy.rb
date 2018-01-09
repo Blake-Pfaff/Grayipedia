@@ -1,10 +1,9 @@
 class WikiPolicy < ApplicationPolicy
-
   def update?
     @user.admin? || is_owner? || @record.users.include?(@user)
   end
 
-   class Scope
+  class Scope
     attr_reader :user, :scope
 
     def initialize(user, scope)
@@ -34,6 +33,5 @@ class WikiPolicy < ApplicationPolicy
       end
       wikis # return the wikis array we've built up
     end
-  end
-
+ end
 end

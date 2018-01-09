@@ -1,5 +1,5 @@
 class WikisController < ApplicationController
-  before_action :set_wiki, only: [:show, :edit, :update, :destroy]
+  before_action :set_wiki, only: %i[show edit update destroy]
   skip_before_action :verify_authenticity_token
   # GET /wikis
   # GET /wikis.json
@@ -20,13 +20,12 @@ class WikisController < ApplicationController
 
   # GET /wikis/1/edit
   def edit
-    @wiki  = Wiki.find(params[:id])
+    @wiki = Wiki.find(params[:id])
   end
 
   # POST /wikis
   # POST /wikis.json
   def create
-
     @wiki = current_user.wikis.new(wiki_params)
 
     respond_to do |format|
@@ -64,21 +63,20 @@ class WikisController < ApplicationController
       flash[:notice] = "\"#{@wiki.title}\" was deleted successfully."
       redirect_to wikis_path
     else
-      flash.now[:alert] = "There was an error deleting the question."
+      flash.now[:alert] = 'There was an error deleting the question.'
       render :show
     end
-
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_wiki
-      @wiki = Wiki.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def wiki_params
-      params.require(:wiki).permit(:title, :body, :private)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_wiki
+    @wiki = Wiki.find(params[:id])
+  end
 
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def wiki_params
+    params.require(:wiki).permit(:title, :body, :private)
+  end
 end

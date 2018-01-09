@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "wikis/new", type: :view do
+RSpec.describe 'wikis/new', type: :view do
   before(:each) do
-    assign(:wiki, Wiki.new())
+    assign(:wiki, Wiki.new)
   end
 
-  it "renders new wiki form" do
+  it 'renders new wiki form' do
     render
 
-    assert_select "form[action=?][method=?]", wikis_path, "post" do
+    assert_select 'form[action=?][method=?]', wikis_path, 'post' do
     end
   end
 end

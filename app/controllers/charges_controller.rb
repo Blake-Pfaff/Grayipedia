@@ -1,5 +1,4 @@
 class ChargesController < ApplicationController
-
   def create
     # Creates a Stripe Customer object, for associating
     # with the charge
@@ -28,17 +27,16 @@ class ChargesController < ApplicationController
     # Stripe will send back CardErrors, with friendly messages
     # when something goes wrong.
     # This `rescue block` catches and displays those errors.
-    rescue Stripe::CardError => e
-      flash[:alert] = e.message
-      redirect_to new_charge_path
+  rescue Stripe::CardError => e
+    flash[:alert] = e.message
+    redirect_to new_charge_path
   end
 
   def new
-
     @amount = 1500
 
     @stripe_btn_data = {
-      key: "#{ Rails.configuration.stripe[:publishable_key] }",
+      key: Rails.configuration.stripe[:publishable_key].to_s,
       description: "BigMoney Membership - #{current_user.email}",
       amount: @amount
     }

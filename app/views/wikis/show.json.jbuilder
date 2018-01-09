@@ -1,1 +1,1 @@
-json.partial! "wikis/wiki", wiki: @wiki
+json.partial! 'wikis/wiki', wiki: @wiki
