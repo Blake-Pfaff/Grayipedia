@@ -52,7 +52,7 @@ gem 'bootstrap-sass'
 
 gem 'rubocop', '~> 0.52.1', require: false
 
-gem 'devise', '~> 4.4'
+gem 'devise', '~> 4.3'
 # Pundit for authorization
 gem 'pundit'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
