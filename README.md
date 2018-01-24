@@ -32,7 +32,7 @@ https://docs.docker.com/docker-for-mac/install/
 * [Love]
 
 
-## Authors
+## Author
 
 * **Blake Pfaff** 
 
