@@ -3,11 +3,10 @@ Gray-pedia is a Wikipida clone made with Ruby on Rails.  You can use mark down t
 
 ## Getting Started
 
-# First Run
-docker-compose build
-docker-compose run --rm api rails db:create
-docker-compose run --rm api rails db:migrate
-docker-compose run --rm api rails db:seed
+First Run docker-compose build,
+docker-compose run --rm api rails db:create,
+docker-compose run --rm api rails db:migrate,
+docker-compose run --rm api rails db:seed,
 docker-compose up
 
 # If you have already run the app
