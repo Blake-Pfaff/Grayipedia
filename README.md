@@ -1,31 +1,37 @@
-# README
+# Gray-pidia
+Gray-pedia is a Wikipida clone made with Ruby on Rails.  You can use mark down to share wikis with other users.  You can also add coloborators and set wikis to private. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-```
-# Getting Started
-docker-compose --rm app rails db:create
-docker-compose --rm app rails db:migrate
+First Run docker-compose build,
+docker-compose run --rm api rails db:create,
+docker-compose run --rm api rails db:migrate,
+docker-compose run --rm api rails db:seed,
 docker-compose up
-```
+
+# If you have already run the app
+docker-compose up
+
+### Prerequisites
+
+Docker :)
+
+
+### Installing
+
+If you habe Docker installed its really as eazy as the steps above.
+https://docs.docker.com/docker-for-mac/install/
+
+
+
+## Built With
+
+* [Ruby on Rails](http://rubyonrails.org/) - The web framework used
+* [Docker](https://docs.docker.com/docker-for-mac/install/) - Dependency Management
+* [Love]
+
+
+## Author
+
+* **Blake Pfaff** 
+
