@@ -1,8 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   ActionMailer::Base.smtp_settings = {
-    :user_name => env['SENDGRID_USERNAME'],
-    :password => env['SENDGRID_PASSWORD'],
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
     :domain => 'https://dashboard.heroku.com',
     :address => 'smtp.sendgrid.net',
     :port => 587,
