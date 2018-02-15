@@ -3,7 +3,7 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
     :password => ENV['SENDGRID_PASSWORD'],
-    :domain => 'https://dashboard.heroku.com',
+    :domain => 'ancient-citadel-35386.herokuapp.com',
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,
@@ -96,5 +96,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.action_mailer.default_url_options = { host: 'blocipedia.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'ancient-citadel-35386.herokuapp.com' }
 end
